@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/HuyDung/Desktop/E-Commerce/E-Commerce/E-Commerce.csproj": {}
+    "H:\\GitHub\\E-commerce\\E-Commerce\\E-Commerce.csproj": {}
   },
   "projects": {
-    "/Users/HuyDung/Desktop/E-Commerce/E-Commerce/E-Commerce.csproj": {
+    "H:\\GitHub\\E-commerce\\E-Commerce\\E-Commerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/HuyDung/Desktop/E-Commerce/E-Commerce/E-Commerce.csproj",
+        "projectUniqueName": "H:\\GitHub\\E-commerce\\E-Commerce\\E-Commerce.csproj",
         "projectName": "E-Commerce",
-        "projectPath": "/Users/HuyDung/Desktop/E-Commerce/E-Commerce/E-Commerce.csproj",
-        "packagesPath": "/Users/HuyDung/.nuget/packages/",
-        "outputPath": "/Users/HuyDung/Desktop/E-Commerce/E-Commerce/obj/",
+        "projectPath": "H:\\GitHub\\E-commerce\\E-Commerce\\E-Commerce.csproj",
+        "packagesPath": "C:\\Users\\Huy\\.nuget\\packages\\",
+        "outputPath": "H:\\GitHub\\E-commerce\\E-Commerce\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/HuyDung/.config/NuGet/NuGet.Config"
+          "C:\\Users\\Huy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,6 +37,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -53,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
