@@ -1,0 +1,133 @@
+@model Ecommerce.Models.ViewModel.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+    <style>
+        .logform {
+            margin-top: 30%;
+        }
+    </style>
+
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-4">
+
+    </div>
+    <div class="col-4  ">
+
+        <div class="logform  shadow-lg py-5 pl-4 pr-5 bg-white rounded">
+            <h2 class="text-primary">Register</h2>
+            <br />
+            <table>
+                <tr>
+                    <td>                    
+                        <div class="card-body">
+                            <form asp-action="Register">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="FirstName"></label>
+                                            <input asp-for="FirstName" class="form-control" />
+                                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="LastName"></label>
+                                            <input asp-for="LastName" class="form-control" />
+                                            <span asp-validation-for="LastName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label asp-for="StreetAddress"></label>
+                                            <input asp-for="StreetAddress" class="form-control" />
+                                            <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label asp-for="City"></label>
+                                            <input asp-for="City" class="form-control" />
+                                            <span asp-validation-for="City" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="State"></label>
+                                            <input asp-for="State" class="form-control" />
+                                            <span asp-validation-for="State" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Zipcode"></label>
+                                            <input asp-for="Zipcode" class="form-control" />
+                                            <span asp-validation-for="Zipcode" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="PhoneNumber">Phone</label>
+                                            <input asp-for="PhoneNumber" class="form-control" />
+                                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Email"></label>
+                                            <input asp-for="Email" class="form-control" />
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label asp-for="Password"></label>
+                                            <input asp-for="Password" class="form-control" />
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label asp-for="ConfirmPassword"></label>
+                                            <input asp-for="ConfirmPassword" class="form-control" />
+                                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" value="Register" class="btn btn-sm btn-primary text-uppercase rounded-0" />
+                            </form>
+                        </div>
+
+
+
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+
+    <div class="col-4">
+
+    </div>
+</div>
