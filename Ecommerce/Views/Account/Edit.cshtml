@@ -1,0 +1,170 @@
+﻿
+@model Ecommerce.Models.ViewModel.UpdateUserViewModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<div>
+    <h4>Change your account settings</h4>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item"><a class="nav-link active" id="profile" href="/Account/edit">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" id="email" href="/Identity/Account/Manage/Email">Email</a></li>
+                <li class="nav-item"><a class="nav-link" id="change-password" href="/Identity/Account/Manage/ChangePassword">Password</a></li>
+                <li class="nav-item"><a class="nav-link" id="two-factor" href="/Identity/Account/Manage/TwoFactorAuthentication">Two-factor authentication</a></li>
+                <li class="nav-item"><a class="nav-link" id="personal-data" href="/Identity/Account/Manage/PersonalData">Personal data</a></li>
+            </ul>
+
+        </div>
+        <div class="col-md-9">
+
+            <h4>Profile</h4>
+
+
+            <div class="row">
+            
+                <div class="col-10  ">
+
+                    <div class="logform  shadow-lg py-5 pl-4 pr-5 bg-white rounded">
+                        <br />
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="card-body">
+                                        @ViewBag.success
+                                        <form asp-action="Edit">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label asp-for="FirstName"></label>
+                                                        <input asp-for="FirstName" value="@ViewBag.Firstname" class="form-control" />
+                                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label asp-for="LastName"></label>
+                                                        <input asp-for="LastName" value="@ViewBag.Lastname" class="form-control" />
+                                                        <span asp-validation-for="LastName" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label asp-for="StreetAddress"></label>
+                                                        <input asp-for="StreetAddress" value="@ViewBag.StreetAddress" class="form-control" />
+                                                        <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label asp-for="City"></label>
+                                                        <input asp-for="City" value="@ViewBag.City" class="form-control" />
+                                                        <span asp-validation-for="City" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label asp-for="State" class="control-label"></label>
+                                                        <select asp-for="State" class="form-control" required />
+                                                        <option value="1">Alabama</option>
+                                                        <option value="2">Alaska</option>
+                                                        <option value="3">Arizona</option>
+                                                        <option value="4">Arkansas</option>
+                                                        <option value="5">California</option>
+                                                        <option value="6">Colorado</option>
+                                                        <option value="7">Connecticut</option>
+                                                        <option value="8">Delaware</option>
+                                                        <option value="9">Florida</option>
+                                                        <option value="10">Georgia</option>
+                                                        <option value="11">Hawaii</option>
+                                                        <option value="12">Idaho</option>
+                                                        <option value="13">Illinois</option>
+                                                        <option value="14">Indiana</option>
+                                                        <option value="15">Iowa</option>
+                                                        <option value="16">Kansas</option>
+                                                        <option value="17">Kentucky</option>
+                                                        <option value="18">Louisiana</option>
+                                                        <option value="19">Maine</option>
+                                                        <option value="20">Maryland</option>
+                                                        <option value="21">Massachusetts</option>
+                                                        <option value="22">Michigan</option>
+                                                        <option value="23">Minnesota</option>
+                                                        <option value="24">Mississippi</option>
+                                                        <option value="25">Missouri</option>
+                                                        <option value="26">Montana</option>
+                                                        <option value="27">Nebraska</option>
+                                                        <option value="28">Nevada</option>
+                                                        <option value="29">New Hampshire</option>
+                                                        <option value="30">New Jersey</option>
+                                                        <option value="31">New Mexico</option>
+                                                        <option value="32">New York</option>
+                                                        <option value="33">North Carolina</option>
+                                                        <option value="34">North Dakota</option>
+                                                        <option value="35">Ohio</option>
+                                                        <option value="36">Oklahoma</option>
+                                                        <option value="37">Oregon</option>
+                                                        <option value="38">Pennsylvania</option>
+                                                        <option value="39">Rhode Island</option>
+                                                        <option value="40">South Carolina</option>
+                                                        <option value="41">South Dakota</option>
+                                                        <option value="42">Tennessee</option>
+                                                        <option value="43">Texas</option>
+                                                        <option value="44">Utah</option>
+                                                        <option value="45">Vermont</option>
+                                                        <option value="46">Virginia</option>
+                                                        <option value="47">Washington</option>
+                                                        <option value="48">West Virginia</option>
+                                                        <option value="49">Wisconsin</option>
+                                                        <option value="50">Wyoming</option>
+                                                        </select>
+                                                        <span asp-validation-for="State" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label asp-for="Zipcode"></label>
+                                                        <input asp-for="Zipcode" value="@ViewBag.Zipcode" class="form-control" />
+                                                        <span asp-validation-for="Zipcode" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label asp-for="PhoneNumber">Phone</label>
+                                                        <input asp-for="PhoneNumber" value="@ViewBag.PhoneNumber" class="form-control" />
+                                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <input type="submit" value="Update" class="btn btn-sm btn-primary text-uppercase rounded-0" />
+                                        </form>
+                                    </div>
+
+
+
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

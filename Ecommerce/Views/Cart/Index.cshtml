@@ -1,0 +1,64 @@
+﻿<style>
+    .InCart {
+        background-color: #eeeeee;
+        margin-top: 5%;
+    }
+</style>
+
+<div class="InCart p-5">
+
+
+    <h2 class="text-primary text-monospace">Cart</h2>
+
+
+    <table cellpadding="2" cellspacing="2" border="1" class="table">
+        <tr>
+            <th>Option</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Sub Total</th>
+        </tr>
+        @if (ViewBag.cart != null)
+            @foreach (var item in ViewBag.cart)
+            {
+                <tr>
+                    <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.ID">Remove</a></td>
+                    <td>@item.Product.ID</td>
+                    <td>@item.Product.productName</td>
+                    <td><img src="@item.Product.image" width="60" /> </td>
+                    <td>$ @item.Product.price</td>
+                    <td>
+                        <a asp-controller="Cart" asp-action="DecreaseQty" asp-route-id="@item.Product.ID"> <i class="fa fa-minus"></i></a>
+                        @item.Quantity
+                        <a asp-controller="Cart" asp-action="IncreaseQty" asp-route-id="@item.Product.ID"> <i class="fa fa-plus"></i></a>
+                    </td>
+                    <td>$ @(item.Product.price * item.Quantity)</td>
+                </tr>
+            }
+        <tr>
+            <td align="right" colspan="6">Total</td>
+            <td>
+                $ @ViewBag.total
+            </td>
+        </tr>
+    </table>
+    @if (ViewBag.Total == 0)
+    {
+        <div class="alert alert-info">
+            <strong>@ViewBag.Message</strong>
+        </div>
+    }
+    <br>
+    <a asp-controller="home" class="btn btn-primary" asp-action="index">Continue Shopping</a>
+    @if (ViewBag.total != 0)
+    {
+        <a asp-controller="orders" class="pull-right btn btn-primary" asp-action="create">Checkout</a>
+    }
+    else
+    {
+        <a asp-controller="cart" class="pull-right btn btn-primary" asp-action="index">Checkout</a>
+    }
+</div>

@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Http;
+@using Ecommerce.Helpers;
+@using Ecommerce.Models;
+
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@inject SignInManager<EcommerceUser> SignInManager
+@inject UserManager<EcommerceUser> UserManager
+
+@{
+    var value = HttpContextAccessor.HttpContext.Session.GetString("cart");
+
+
+    List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContextAccessor.HttpContext.Session, "cart");
+    @if (cart == null)
+    {
+        <a class="nav-link text-dark" asp-controller="Cart" asp-action="index">
+            <i class="fa fa-shopping-cart"></i> (0)
+        </a>
+    }
+    else
+    {
+        var totalQty = 0;
+        @foreach(var item in cart)
+         {
+            totalQty += item.Quantity;
+        }
+        <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="index">
+            <i class="fa fa-shopping-cart"></i> (@totalQty)
+        </a>
+    }
+
+
+
+
+
+}
+
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="edit" title="Manage">Hello @User.Identity.Name!</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+        </li>
+    }
+</ul>

@@ -1,0 +1,249 @@
+﻿@model Ecommerce.Models.Order
+
+
+@{
+    ViewData["Title"] = "Check Out";
+}
+<style>
+    .PaymentPage {
+        background-color: #eeeeee;
+        margin-top: 5%;
+    }
+</style>
+
+
+<h1>@ViewBag.check</h1>
+<br>
+
+
+<div class="PaymentPage p-5 shadow-lg rounded">
+
+    <h4 class="text-primary">Order</h4>
+    <hr />
+    <div class="row">
+        @if (ViewBag.cart != null)
+        {
+            <table cellpadding="2" cellspacing="2" border="1" class="table">
+                <tr>
+                    <th>Option</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Photo</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Sub Total</th>
+                </tr>
+
+                @foreach (var item in ViewBag.cart)
+                {
+                    <tr>
+                        <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.ID">Remove</a></td>
+                        <td>@item.Product.ID</td>
+                        <td>@item.Product.productName</td>
+                        <td><img src="@item.Product.image" width="60" /> </td>
+                        <td>$ @item.Product.price</td>
+                        <td>@item.Quantity</td>
+                        <td>@(item.Product.price * item.Quantity)</td>
+                    </tr>
+                }
+                <tr>
+                    <td align="right" colspan="6">Total</td>
+                    <td>
+                        $ @ViewBag.total
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-12 border-right border-success">
+
+
+            <form asp-action="Create">
+                <table>
+                    <td>
+                        <h4 class="text-primary">Shipping Info</h4>
+                        <hr />
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="row">
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="CustomerInfo" class="control-label"></label>
+                                    <input asp-for="CustomerInfo" value="@ViewBag.Name" class="form-control" required />
+                                    <span asp-validation-for="CustomerInfo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="StreetAddress" class="control-label"></label>
+                                    <input asp-for="StreetAddress" class="form-control" required />
+                                    <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="City" class="control-label"></label>
+                                    <input asp-for="City" class="form-control" required />
+                                    <span asp-validation-for="City" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="State" class="control-label"></label>
+                                    <select asp-for="State" class="form-control" required />
+                                    <option value="1">Alabama</option>
+                                    <option value="2">Alaska</option>
+                                    <option value="3">Arizona</option>
+                                    <option value="4">Arkansas</option>
+                                    <option value="5">California</option>
+                                    <option value="6">Colorado</option>
+                                    <option value="7">Connecticut</option>
+                                    <option value="8">Delaware</option>
+                                    <option value="9">Florida</option>
+                                    <option value="10">Georgia</option>
+                                    <option value="11">Hawaii</option>
+                                    <option value="12">Idaho</option>
+                                    <option value="13">Illinois</option>
+                                    <option value="14">Indiana</option>
+                                    <option value="15">Iowa</option>
+                                    <option value="16">Kansas</option>
+                                    <option value="17">Kentucky</option>
+                                    <option value="18">Louisiana</option>
+                                    <option value="19">Maine</option>
+                                    <option value="20">Maryland</option>
+                                    <option value="21">Massachusetts</option>
+                                    <option value="22">Michigan</option>
+                                    <option value="23">Minnesota</option>
+                                    <option value="24">Mississippi</option>
+                                    <option value="25">Missouri</option>
+                                    <option value="26">Montana</option>
+                                    <option value="27">Nebraska</option>
+                                    <option value="28">Nevada</option>
+                                    <option value="29">New Hampshire</option>
+                                    <option value="30">New Jersey</option>
+                                    <option value="31">New Mexico</option>
+                                    <option value="32">New York</option>
+                                    <option value="33">North Carolina</option>
+                                    <option value="34">North Dakota</option>
+                                    <option value="35">Ohio</option>
+                                    <option value="36">Oklahoma</option>
+                                    <option value="37">Oregon</option>
+                                    <option value="38">Pennsylvania</option>
+                                    <option value="39">Rhode Island</option>
+                                    <option value="40">South Carolina</option>
+                                    <option value="41">South Dakota</option>
+                                    <option value="42">Tennessee</option>
+                                    <option value="43">Texas</option>
+                                    <option value="44">Utah</option>
+                                    <option value="45">Vermont</option>
+                                    <option value="46">Virginia</option>
+                                    <option value="47">Washington</option>
+                                    <option value="48">West Virginia</option>
+                                    <option value="49">Wisconsin</option>
+                                    <option value="50">Wyoming</option>
+                                    </select>
+                                    <span asp-validation-for="State" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="Zipcode" class="control-label"></label>
+                                    <input asp-for="Zipcode" class="form-control" required />
+                  
+                                    <span asp-validation-for="Zipcode" class="text-danger"></span>  
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="PaymentMethod" class="control-label"></label>
+                                    <select asp-for="PaymentMethod" class="form-control" required>
+                                        <option value="1">Credit Card</option>
+                                        <option value="2">Debit Card</option>
+                                    </select>
+
+                                    <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group" style="display:none">
+                            <label asp-for="DateAdded" class="control-label"></label>
+                            <input asp-for="DateAdded" class="form-control" />
+                            <span asp-validation-for="DateAdded" class="text-danger"></span>
+                        </div>
+                        <div class="form-group" style="display:none">
+                            <label asp-for="Status" class="control-label"></label>
+                            <input asp-for="Status" class="form-control" />
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td style=" vertical-align: top">
+
+                        <div class="col-12">
+                            <h4 class="text-primary">Payment</h4>
+                            <hr />
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="NameOnCard" class="control-label"></label>
+                                        <input asp-for="NameOnCard" class="form-control" required />
+                                        <span asp-validation-for="NameOnCard" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="CardNumber" class="control-label"></label>
+                                        <input asp-for="CardNumber" class="form-control" required />
+                                        <span asp-validation-for="CardNumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="ExpDay" class="control-label"></label>
+                                        <input asp-for="ExpDay" class="form-control" required />
+                                        <span asp-validation-for="ExpDay" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label asp-for="SecCode" class="control-label"></label>
+                                        <input asp-for="SecCode" class="form-control" required />
+                                        <span asp-validation-for="SecCode" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </table>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Place Order" class="btn btn-primary" />
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>
